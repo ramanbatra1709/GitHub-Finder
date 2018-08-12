@@ -29,6 +29,23 @@ class UI    {
         `;
     }
 
+    showAlert(message, className) {
+        const newDiv = document.createElement('div');
+        newDiv.className = className;
+        newDiv.appendChild(document.createTextNode(message));
+        document.querySelector('.searchContainer').insertBefore(newDiv, document.querySelector('.search'));
+        setTimeout(() => {
+            this.clearAlert()
+        }, 5000);
+    }
+
+    clearAlert()    {
+        const existingAlert = document.querySelector('.alert');
+        if (existingAlert !== null)  {
+            existingAlert.remove();
+        }
+    }
+    
     clearProfile()  {
         this.profile.innerHTML = '';
     }
