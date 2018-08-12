@@ -28,4 +28,8 @@ class UI    {
             <div id="repositories"></div>
         `;
     }
+
+    clearProfile()  {
+        this.profile.innerHTML = '';
+    }
 }
