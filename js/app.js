@@ -1,5 +1,6 @@
 const searchUser = document.querySelector('#searchUser');
 const github = new GitHub();
+const ui = new UI();
 
 searchUser.addEventListener('keyup', (event) => {
     const userText = event.target.value;
@@ -10,7 +11,7 @@ searchUser.addEventListener('keyup', (event) => {
                 // show an error message
             }
             else    {
-                // show the profile with repos
+                ui.showProfile(data.profile);
             }
         });
     }
