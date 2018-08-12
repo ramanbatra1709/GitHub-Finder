@@ -29,7 +29,29 @@ class UI    {
         `;
     }
 
+    showRepositories(repositories)  {
+        let output = '';
+        repositories.forEach((repository) =>  {
+            output += `
+                <div class="card card-body mb-2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="${repository.html_url}" target="_blank">${repository.name}</a>
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge badge-primary">Stars: ${repository.stargazers_count}</span>
+                            <span class="badge badge-secondary">Public Gists: ${repository.watchers_count}</span>
+                            <span class="badge badge-success">Followers: ${repository.forks_count}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        document.querySelector('#repositories').innerHTML = output;
+    }
+
     showAlert(message, className) {
+        this.clearAlert();
         const newDiv = document.createElement('div');
         newDiv.className = className;
         newDiv.appendChild(document.createTextNode(message));
